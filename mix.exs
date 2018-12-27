@@ -22,7 +22,7 @@ defmodule Envelope.Mixfile do
 
   defp deps do
     [
-      {:geo, path: "../geo"},
+      {:geo, git: "https://github.com/taun/geo.git", branch: "jason_compatibility"},
       {:distance, "~> 0.2.1"},
       {:excoveralls, "~> 0.4", only: :test},
       {:earmark, "~> 1.0", only: :dev},
