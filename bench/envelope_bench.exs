@@ -3,24 +3,24 @@ defmodule EnvelopeBench do
 
   @states Path.join([ "bench", "shapes", "states.json" ])
     |> File.read!
-    |> Poison.decode!
+    |> Jason.decode!
     |> Map.fetch!("features")
     |> Enum.map(&(&1["geometry"]))
-    |> Enum.map(&Geo.JSON.decode/1)
+    |> Enum.map(&Geo.JSON.decode!/1)
 
   @counties Path.join([ "bench", "shapes", "counties.json" ])
     |> File.read!
-    |> Poison.decode!
+    |> Jason.decode!
     |> Map.fetch!("features")
     |> Enum.map(&(&1["geometry"]))
-    |> Enum.map(&Geo.JSON.decode/1)
+    |> Enum.map(&Geo.JSON.decode!/1)
 
   @cities Path.join([ "bench", "shapes", "cities.json" ])
     |> File.read!
-    |> Poison.decode!
+    |> Jason.decode!
     |> Map.fetch!("features")
     |> Enum.map(&(&1["geometry"]))
-    |> Enum.map(&Geo.JSON.decode/1)
+    |> Enum.map(&Geo.JSON.decode!/1)
 
   def take_from(list) do
     list |> Enum.take_random(1) |> hd
